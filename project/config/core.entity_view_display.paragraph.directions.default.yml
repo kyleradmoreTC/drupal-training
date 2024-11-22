@@ -1,0 +1,32 @@
+uuid: 42ec1342-1249-46bc-ba7c-b7d7379b2c1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.directions.field_direction
+    - field.field.paragraph.directions.field_media
+    - paragraphs.paragraphs_type.directions
+  module:
+    - text
+id: paragraph.directions.default
+targetEntityType: paragraph
+bundle: directions
+mode: default
+content:
+  field_direction:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_media:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden: {  }

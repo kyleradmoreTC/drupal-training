@@ -1,0 +1,9 @@
+uuid: fe3a8f38-9b92-4d1e-9d59-f7a6bb65793c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Required Appliances'
+vid: required_appliances
+description: null
+weight: 0
+new_revision: false

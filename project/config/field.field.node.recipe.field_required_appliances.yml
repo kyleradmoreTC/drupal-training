@@ -1,0 +1,29 @@
+uuid: 50f2bc0f-6138-48ab-9ec1-283c2beeb110
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_required_appliances
+    - node.type.recipe
+    - taxonomy.vocabulary.required_appliances
+id: node.recipe.field_required_appliances
+field_name: field_required_appliances
+entity_type: node
+bundle: recipe
+label: 'Required Appliances'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      required_appliances: required_appliances
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 73b8e25f-6e96-44d3-a097-87ef87b90549
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_direction
+field_name: field_direction
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

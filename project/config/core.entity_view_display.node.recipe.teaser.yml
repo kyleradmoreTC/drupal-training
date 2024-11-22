@@ -1,0 +1,42 @@
+uuid: 7a68a839-a69e-49e6-84da-fde39bde18d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.recipe.body
+    - field.field.node.recipe.field_diet_types
+    - field.field.node.recipe.field_directions
+    - field.field.node.recipe.field_meal_categories
+    - field.field.node.recipe.field_medias
+    - field.field.node.recipe.field_primary_cooking_method
+    - field.field.node.recipe.field_required_appliances
+    - node.type.recipe
+  module:
+    - text
+    - user
+id: node.recipe.teaser
+targetEntityType: node
+bundle: recipe
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_diet_types: true
+  field_directions: true
+  field_meal_categories: true
+  field_medias: true
+  field_primary_cooking_method: true
+  field_required_appliances: true

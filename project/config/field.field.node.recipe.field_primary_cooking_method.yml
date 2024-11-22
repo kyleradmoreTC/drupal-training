@@ -1,0 +1,29 @@
+uuid: a47239e3-33a0-4720-b810-71a1f600d27d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_cooking_method
+    - node.type.recipe
+    - taxonomy.vocabulary.primary_cooking_method
+id: node.recipe.field_primary_cooking_method
+field_name: field_primary_cooking_method
+entity_type: node
+bundle: recipe
+label: 'Primary Cooking Method'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      primary_cooking_method: primary_cooking_method
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
