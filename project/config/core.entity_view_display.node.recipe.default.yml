@@ -4,15 +4,22 @@ status: true
 dependencies:
   config:
     - field.field.node.recipe.body
+    - field.field.node.recipe.field_chef
+    - field.field.node.recipe.field_cooking_time
+    - field.field.node.recipe.field_cuisine
     - field.field.node.recipe.field_diet_types
+    - field.field.node.recipe.field_difficulty_level
     - field.field.node.recipe.field_directions
+    - field.field.node.recipe.field_ingredients
     - field.field.node.recipe.field_meal_categories
     - field.field.node.recipe.field_medias
     - field.field.node.recipe.field_primary_cooking_method
     - field.field.node.recipe.field_required_appliances
+    - field.field.node.recipe.field_steps
     - node.type.recipe
   module:
     - entity_reference_revisions
+    - options
     - text
     - user
 id: node.recipe.default
@@ -27,6 +34,31 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
+  field_chef:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_cooking_time:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_cuisine:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
   field_diet_types:
     type: entity_reference_label
     label: above
@@ -34,6 +66,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_difficulty_level:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
     region: content
   field_directions:
     type: entity_reference_revisions_entity_view
@@ -43,6 +82,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 7
+    region: content
+  field_ingredients:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_meal_categories:
     type: entity_reference_label
@@ -76,6 +123,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_steps:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
     region: content
   links:
     settings: {  }

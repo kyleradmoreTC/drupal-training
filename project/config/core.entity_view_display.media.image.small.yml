@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.small
     - field.field.media.image.field_media_image
-    - image.style.large
+    - image.style.thumbnail
     - media.type.image
   module:
     - image
@@ -19,7 +19,7 @@ content:
     label: visually_hidden
     settings:
       image_link: ''
-      image_style: large
+      image_style: thumbnail
       image_loading:
         attribute: lazy
     third_party_settings: {  }

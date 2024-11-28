@@ -1,19 +1,18 @@
-uuid: b566ec40-a438-4c92-b99b-a620e08cb38d
+uuid: 1155e83e-df6a-4356-bbcb-365b63ad54f7
 langcode: en
 status: true
 dependencies:
   module:
-    - media
     - node
-id: node.field_medias
-field_name: field_medias
+id: node.field_chef
+field_name: field_chef
 entity_type: node
 type: entity_reference
 settings:
-  target_type: media
+  target_type: node
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

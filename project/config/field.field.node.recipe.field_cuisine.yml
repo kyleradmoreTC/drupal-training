@@ -1,16 +1,16 @@
-uuid: fa7e5758-11b6-457d-8358-d64ff9974d3e
+uuid: 62a7610c-6929-4126-84f3-346da7369874
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_meal_categories
+    - field.storage.node.field_cuisine
     - node.type.recipe
-    - taxonomy.vocabulary.meal_categories
-id: node.recipe.field_meal_categories
-field_name: field_meal_categories
+    - taxonomy.vocabulary.cuisines
+id: node.recipe.field_cuisine
+field_name: field_cuisine
 entity_type: node
 bundle: recipe
-label: 'Meal Categories'
+label: Cuisine
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      meal_categories: meal_categories
+      cuisines: cuisines
     sort:
       field: name
       direction: asc

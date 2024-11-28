@@ -1,0 +1,9 @@
+uuid: bacab4a4-9586-4929-85bd-90a16ef6800a
+langcode: en
+status: true
+dependencies: {  }
+name: Cuisines
+vid: cuisines
+description: null
+weight: 0
+new_revision: false

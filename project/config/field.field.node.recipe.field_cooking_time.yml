@@ -1,0 +1,23 @@
+uuid: b229bd7d-a0e0-4ef0-9710-ccb137890f33
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cooking_time
+    - node.type.recipe
+id: node.recipe.field_cooking_time
+field_name: field_cooking_time
+entity_type: node
+bundle: recipe
+label: 'Cooking time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: minutes
+field_type: integer
