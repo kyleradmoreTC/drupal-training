@@ -8,9 +8,11 @@ dependencies:
     - field.storage.node.field_cuisine
     - field.storage.node.field_difficulty_level
     - field.storage.node.field_specialty
+    - node.type.chef
     - node.type.recipe
     - system.menu.main
     - taxonomy.vocabulary.cuisines
+    - taxonomy.vocabulary.meal_categories
   module:
     - better_exposed_filters
     - csv_serialization
@@ -614,6 +616,48 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+          operator: in
+          value:
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -808,6 +852,357 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_cooking_time'
+        - 'config:field.storage.node.field_cuisine'
+        - 'config:field.storage.node.field_difficulty_level'
+  block_2:
+    id: block_2
+    display_title: 'Latest Recipes by Chef - Block'
+    display_plugin: block
+    position: 2
+    display_options:
+      title: 'Latest Recipes'
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 3
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'This Chef has no recipes yet.'
+            format: basic_html
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: 'Authored on'
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments:
+        field_chef_target_id:
+          id: field_chef_target_id
+          table: node__field_chef
+          field: field_chef_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: entity_target_id
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:node'
+            fail: 'not found'
+          validate_options:
+            bundles:
+              chef: chef
+            access: true
+            operation: view
+            multiple: 0
+          break_phrase: false
+          not: false
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            recipe: recipe
+          group: 1
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ol
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      defaults:
+        empty: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        style: false
+        row: false
+        sorts: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See more recipes'
+      header: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_cooking_time'
+        - 'config:field.storage.node.field_cuisine'
+        - 'config:field.storage.node.field_difficulty_level'
+  block_3:
+    id: block_3
+    display_title: 'Similar Recipes - Block'
+    display_plugin: block
+    position: 2
+    display_options:
+      title: 'Similar Recipes'
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 3
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No similar recipes.'
+            format: basic_html
+          tokenize: false
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+          order: DESC
+          expose:
+            label: 'Authored on'
+            field_identifier: created
+          exposed: false
+          granularity: second
+      arguments:
+        term_node_tid_depth:
+          id: term_node_tid_depth
+          table: node_field_data
+          field: term_node_tid_depth
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: taxonomy_index_tid_depth
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: taxonomy_tid
+          default_argument_options:
+            term_page: '0'
+            node: true
+            limit: true
+            vids:
+              cuisines: cuisines
+              meal_categories: meal_categories
+            anyall: ','
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          depth: 0
+          use_taxonomy_term_path: false
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: node
+          default_argument_options: {  }
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          break_phrase: false
+          not: true
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            recipe: recipe
+          group: 1
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          type: ol
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: true
+      defaults:
+        empty: false
+        title: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        style: false
+        row: false
+        sorts: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
+      use_more: true
+      use_more_always: true
+      use_more_text: 'See more recipes'
+      header: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1230,220 +1625,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-      filters:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: title
-          plugin_id: string
-          operator: word
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: title_op
-            label: Title
-            description: ''
-            use_operator: false
-            operator: title_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: title
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_cuisine_target_id:
-          id: field_cuisine_target_id
-          table: node__field_cuisine
-          field: field_cuisine_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_cuisine_target_id_op
-            label: Cuisine
-            description: ''
-            use_operator: false
-            operator: field_cuisine_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: cuisine
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: cuisines
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-        field_difficulty_level_value:
-          id: field_difficulty_level_value
-          table: node__field_difficulty_level
-          field: field_difficulty_level_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: list_field
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_difficulty_level_value_op
-            label: 'Difficulty Level'
-            description: ''
-            use_operator: false
-            operator: field_difficulty_level_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: difficulty
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          value:
-            recipe: recipe
-          group: 1
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
-        field_specialty_target_id:
-          id: field_specialty_target_id
-          table: node__field_specialty
-          field: field_specialty_target_id
-          relationship: field_chef
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_specialty_target_id_op
-            label: "Chef's Specialty"
-            description: ''
-            use_operator: false
-            operator: field_specialty_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_specialty_target_id
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          vid: cuisines
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
       defaults:
         relationships: false
         fields: false
-        filters: false
-        filter_groups: false
+        filters: true
+        filter_groups: true
       relationships:
         field_chef:
           id: field_chef
@@ -1454,6 +1640,7 @@ display:
           admin_label: 'field_chef: Content'
           plugin_id: standard
           required: false
+      rendering_language: '***LANGUAGE_language_interface***'
       display_extenders: {  }
       path: recipes
       menu:
@@ -1461,11 +1648,9 @@ display:
         title: Recipes
         menu_name: main
         parent: ''
-      use_admin_theme: true
     cache_metadata:
       max-age: -1
       contexts:
-        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args

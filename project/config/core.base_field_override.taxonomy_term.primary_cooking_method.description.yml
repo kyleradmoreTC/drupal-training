@@ -1,0 +1,21 @@
+uuid: dc90c169-8fb2-48b1-a14b-4afa2f6cb2e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.primary_cooking_method
+  module:
+    - text
+id: taxonomy_term.primary_cooking_method.description
+field_name: description
+entity_type: taxonomy_term
+bundle: primary_cooking_method
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

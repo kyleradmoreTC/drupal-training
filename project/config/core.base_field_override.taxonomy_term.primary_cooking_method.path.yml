@@ -1,0 +1,20 @@
+uuid: 104bb435-e290-4188-896f-a938d4a6eba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.primary_cooking_method
+  module:
+    - path
+id: taxonomy_term.primary_cooking_method.path
+field_name: path
+entity_type: taxonomy_term
+bundle: primary_cooking_method
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,18 @@
+uuid: 681a48e6-975a-441a-9576-c4d1530ba116
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.required_appliances
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.required_appliances
+target_entity_type_id: taxonomy_term
+target_bundle: required_appliances
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,8 @@
+uuid: 35d38d4d-5f26-4809-8763-93f23d5ed5ec
+langcode: en
+status: true
+dependencies: {  }
+id: node__recipe
+label: 'Content: Recipe'
+tags:
+  og_type: recipe

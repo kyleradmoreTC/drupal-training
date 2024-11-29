@@ -1,0 +1,22 @@
+uuid: 0003fc76-80d1-46ce-9784-629b9c90e0fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.required_appliances
+id: taxonomy_term.required_appliances.status
+field_name: status
+entity_type: taxonomy_term
+bundle: required_appliances
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

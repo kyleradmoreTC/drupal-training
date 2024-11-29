@@ -1,0 +1,18 @@
+uuid: 0c593580-3636-44e1-ab24-add473fe70ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuisines
+id: taxonomy_term.cuisines.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: cuisines
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

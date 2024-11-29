@@ -1,0 +1,18 @@
+uuid: 479ca081-f5c1-4737-b523-0e729b49f06a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.primary_cooking_method
+id: taxonomy_term.primary_cooking_method.name
+field_name: name
+entity_type: taxonomy_term
+bundle: primary_cooking_method
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

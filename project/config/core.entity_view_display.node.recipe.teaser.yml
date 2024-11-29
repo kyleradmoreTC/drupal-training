@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.recipe.field_ingredients
     - field.field.node.recipe.field_meal_categories
     - field.field.node.recipe.field_medias
+    - field.field.node.recipe.field_metatags
     - field.field.node.recipe.field_primary_cooking_method
     - field.field.node.recipe.field_required_appliances
     - field.field.node.recipe.field_steps
@@ -65,6 +66,8 @@ hidden:
   field_ingredients: true
   field_meal_categories: true
   field_medias: true
+  field_metatags: true
   field_primary_cooking_method: true
   field_required_appliances: true
   field_steps: true
+  langcode: true

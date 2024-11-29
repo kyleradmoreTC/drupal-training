@@ -1,0 +1,18 @@
+uuid: 822a9bf7-1be3-4c4f-8a2f-68473ad12ff3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.chef
+id: node.chef.created
+field_name: created
+entity_type: node
+bundle: chef
+label: 'Authored on'
+description: 'The date and time that the content was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

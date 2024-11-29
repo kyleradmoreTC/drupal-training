@@ -1,0 +1,18 @@
+uuid: 794db657-ac42-4e80-9632-6044db10ee8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.required_appliances
+id: taxonomy_term.required_appliances.name
+field_name: name
+entity_type: taxonomy_term
+bundle: required_appliances
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

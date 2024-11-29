@@ -1,0 +1,18 @@
+uuid: 024f1dc4-0f6d-4512-b656-ff3aba1e34ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.required_appliances
+id: taxonomy_term.required_appliances.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: required_appliances
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

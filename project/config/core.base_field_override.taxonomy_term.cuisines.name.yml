@@ -1,0 +1,18 @@
+uuid: 2afbf3d2-6eef-4475-802c-6808562256d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuisines
+id: taxonomy_term.cuisines.name
+field_name: name
+entity_type: taxonomy_term
+bundle: cuisines
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

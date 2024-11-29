@@ -1,0 +1,20 @@
+uuid: 15e1aaee-7cbf-4f7d-9752-25652244dc01
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuisines
+  module:
+    - path
+id: taxonomy_term.cuisines.path
+field_name: path
+entity_type: taxonomy_term
+bundle: cuisines
+label: 'URL alias'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

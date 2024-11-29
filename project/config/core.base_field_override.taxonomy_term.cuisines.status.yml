@@ -1,0 +1,22 @@
+uuid: 10fb55db-06cd-4534-baeb-f5f76b832318
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.cuisines
+id: taxonomy_term.cuisines.status
+field_name: status
+entity_type: taxonomy_term
+bundle: cuisines
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

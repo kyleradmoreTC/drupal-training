@@ -1,0 +1,33 @@
+uuid: 37a53c7d-821e-489a-9efc-df978c146c1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: recipes_in_french
+label: 'Recipes in french'
+type: 'canonical_entities:node'
+pattern: '/recette/[node:title]'
+selection_criteria:
+  3f45a819-2ff6-4e4d-8591-f412e506aa65:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 3f45a819-2ff6-4e4d-8591-f412e506aa65
+    context_mapping:
+      node: node
+    bundles:
+      recipe: recipe
+  74af8d0a-ad2a-4230-98cf-a388be017d23:
+    id: language
+    negate: false
+    uuid: 74af8d0a-ad2a-4230-98cf-a388be017d23
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      fr: fr
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
