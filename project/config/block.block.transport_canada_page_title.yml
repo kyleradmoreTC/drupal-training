@@ -1,0 +1,20 @@
+uuid: cd9a2b5a-716b-46c3-84c6-4573d27005ae
+langcode: en
+status: true
+dependencies:
+  theme:
+    - transport_canada
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: transport_canada_page_title
+theme: transport_canada
+region: header
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,25 @@
+uuid: 8a01cd48-79e7-46c8-9c57-3c5a54c92117
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - transport_canada
+_core:
+  default_config_hash: n_nlgjggHVfQt2H__zvLOKB2YtjPDbQ5tHijF9LE1aM
+id: transport_canada_site_branding
+theme: transport_canada
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

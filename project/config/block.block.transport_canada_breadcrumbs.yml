@@ -1,0 +1,22 @@
+uuid: add7d9b8-e4c5-4985-a9fb-4d18bb50bd78
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - transport_canada
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: transport_canada_breadcrumbs
+theme: transport_canada
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 17abf8a0-0dd9-4d80-991b-e5ac7fb545a5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - transport_canada
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: transport_canada_primary_admin_actions
+theme: transport_canada
+region: highlighted
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }
