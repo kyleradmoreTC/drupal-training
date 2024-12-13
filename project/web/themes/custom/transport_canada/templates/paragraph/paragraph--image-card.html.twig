@@ -61,11 +61,11 @@
   {% embed('transport_canada:image_card') with {
     card_description: content.field_description,
     card_image: content.field_image,
-    card_cta: content.field_cta,
+    card_cta: content.field_buttons,
     attributes
   } %}
       {% block headerSlot %}
-        <h3 class="tc-image-card__title">
+        <h3 class="tc-image-card__title font-bold">
           {{ content.field_title }}
         </h3>
       {% endblock headerSlot %}

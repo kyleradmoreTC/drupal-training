@@ -1,0 +1,29 @@
+uuid: b0bd4ae1-15d9-4c76-a106-c00f4acd2590
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.button.field_cta
+    - paragraphs.paragraphs_type.button
+  module:
+    - link
+id: paragraph.button.preview
+targetEntityType: paragraph
+bundle: button
+mode: preview
+content:
+  field_cta:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

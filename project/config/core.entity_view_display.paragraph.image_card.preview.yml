@@ -4,30 +4,16 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
-    - field.field.paragraph.image_card.field_cta
+    - field.field.paragraph.image_card.field_buttons
     - field.field.paragraph.image_card.field_description
     - field.field.paragraph.image_card.field_image
     - field.field.paragraph.image_card.field_title
     - paragraphs.paragraphs_type.image_card
-  module:
-    - link
 id: paragraph.image_card.preview
 targetEntityType: paragraph
 bundle: image_card
 mode: preview
 content:
-  field_cta:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_description:
     type: basic_string
     label: hidden
@@ -53,4 +39,5 @@ content:
     weight: 1
     region: content
 hidden:
+  field_buttons: true
   search_api_excerpt: true
