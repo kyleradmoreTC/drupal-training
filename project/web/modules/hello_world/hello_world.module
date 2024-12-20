@@ -10,8 +10,28 @@ Use \Drupal\Core\Form\FormStateInterface;
 /**
 * Implements hook_form_alter().
 */
+function hello_world_form_node_chef_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
+  $form['options']['#open'] = TRUE;
+}
 
+/**
+* Implements hook_form_alter().
+*/
 function hello_world_form_alter(&$form, FormStateInterface $form_state, $form_id) : void {
-  ksm($form_id);
-  ksm($form);
+  $form_ids= [
+    'node_chef_form',
+    'node_article_form',
+    'node_recipe_form'
+  ];
+
+  if (in_array($form_id, $form_ids)) {
+    $form['options']['#open'] = TRUE;
+  }
+
+  if ($form_id == 'node_article_form') {
+    $user = \Drupal::currentUser();
+    // $user = \Drupal::service('current_user');
+
+    $form['field_tags']['#access'] = $user->hasPermission('attach tags to articles');
+  }
 }
