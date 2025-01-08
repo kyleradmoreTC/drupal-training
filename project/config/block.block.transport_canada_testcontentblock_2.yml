@@ -1,0 +1,25 @@
+uuid: f34f6851-9d1e-4e81-a0c2-25a961e9a26a
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:test_content_block:c8e882fc-c125-4e99-9bdd-b675c9bc15c8'
+  module:
+    - block_content
+  theme:
+    - transport_canada
+id: transport_canada_testcontentblock_2
+theme: transport_canada
+region: footer_bottom
+weight: -10
+provider: null
+plugin: 'block_content:c8e882fc-c125-4e99-9bdd-b675c9bc15c8'
+settings:
+  id: 'block_content:c8e882fc-c125-4e99-9bdd-b675c9bc15c8'
+  label: 'Test Content Block'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

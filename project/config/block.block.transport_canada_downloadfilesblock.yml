@@ -1,0 +1,21 @@
+uuid: 45a1f381-b173-488e-bc44-d89a8e63019c
+langcode: en
+status: true
+dependencies:
+  module:
+    - download_files
+  theme:
+    - transport_canada
+id: transport_canada_downloadfilesblock
+theme: transport_canada
+region: sidebar
+weight: 0
+provider: null
+plugin: download_files_block
+settings:
+  id: download_files_block
+  label: 'Download Files Block'
+  label_display: '0'
+  provider: download_files
+  example: 'Implementing Download Files Form!'
+visibility: {  }
