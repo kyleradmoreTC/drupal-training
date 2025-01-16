@@ -1,0 +1,5 @@
+example: null
+allowed_media_types:
+  document: document
+  image: 0
+  video: 0

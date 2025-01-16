@@ -65,9 +65,12 @@ final class DownloadFilesForm extends FormBase {
 
     // $results = $results->execute()->fetchAll();
 
+    $config = \Drupal::config('download_files.settings');
+    $media_types = $config->get('allowed_media_types');
+
     $ids = \Drupal::entityQuery('media')
       ->condition('status', 1)
-      ->condition('bundle', ['document', 'image'], 'IN')
+      ->condition('bundle', $media_types, 'IN')
       ->accessCheck()
       ->execute();
 
@@ -107,26 +110,23 @@ final class DownloadFilesForm extends FormBase {
       case 'image':
         $uri = $media->field_media_image->entity->uri->value;
 
-        $response = new BinaryFileResponse($uri);
-        $response->setContentDisposition('attachment');
-        $form_state->setResponse($response);
         break;
       case 'video':
         $uri = $media->field_media_oembed_video->value;
         $this->messenger()->addStatus($this->t('The video can be found in @url.', ['@url' => $uri]));
         
-        $response = new BinaryFileResponse($uri);
-        $response->setContentDisposition('attachment');
-        $form_state->setResponse($response);
         break;
       default:
         // Document of files
         $uri = $media->field_media_file->entity->uri->value;
 
-        $response = new BinaryFileResponse($uri);
-        $response->setContentDisposition('attachment');
-        $form_state->setResponse($response);
         break;
+    }
+
+    if ($uri) {
+      $response = new BinaryFileResponse($uri);
+      $response->setContentDisposition('attachment');
+      $form_state->setResponse($response);
     }
 
     // $this->messenger()->addStatus($this->t('The message has been sent.'));
