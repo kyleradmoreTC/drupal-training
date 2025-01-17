@@ -1,0 +1,25 @@
+uuid: 02415e17-397a-4006-83d6-01042b7079ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - amd_blocks
+    - system
+  theme:
+    - transport_canada
+id: transport_canada_amdhelloworldblock
+theme: transport_canada
+region: sidebar
+weight: 0
+provider: null
+plugin: amd_blocks_hello_world
+settings:
+  id: amd_blocks_hello_world
+  label: 'AMD Hello World Block'
+  label_display: '0'
+  provider: amd_blocks
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'
