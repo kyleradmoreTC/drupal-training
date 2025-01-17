@@ -1,0 +1,20 @@
+uuid: 54cd7fa8-9475-4d22-9ee5-45915786e083
+langcode: en
+status: true
+dependencies:
+  module:
+    - audit
+  theme:
+    - transport_canada
+id: transport_canada_deletedentitieslistblock
+theme: transport_canada
+region: sidebar
+weight: 0
+provider: null
+plugin: audit_deleted_entities_list_block
+settings:
+  id: audit_deleted_entities_list_block
+  label: 'Deleted Entities List Block'
+  label_display: '0'
+  provider: audit
+visibility: {  }
